@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* obsidian ink */
+  --color-ink-950: #05050a;
+  --color-ink-900: #0a0a14;
+  --color-ink-850: #0e0e1a;
+  --color-ink-800: #131322;
+  --color-ink-700: #1c1c30;
+  --color-ink-600: #2b2b46;
+
+  /* judicial gilt */
+  --color-gilt-200: #f8ecd2;
+  --color-gilt-300: #f0d9a4;
+  --color-gilt-400: #e4ba64;
+  --color-gilt-500: #cf9c3f;
+  --color-gilt-600: #a87a2c;
+
+  /* genlayer iris */
+  --color-iris-200: #d9d0ff;
+  --color-iris-300: #c0b2ff;
+  --color-iris-400: #9d86ff;
+  --color-iris-500: #8464f7;
+  --color-iris-600: #6d47ea;
+
+  /* aqua (defendant / chain data) */
+  --color-aqua-300: #8ef2d9;
+  --color-aqua-400: #55e2c0;
+  --color-aqua-500: #2ec7a2;
+
+  /* dissent */
+  --color-ember-400: #ff8f6b;
+  --color-ember-500: #f2694a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink-950);
+  color: #e9e9f2;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(228, 186, 100, 0.28);
+  color: #fff8e8;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #07070e;
+}
+::-webkit-scrollbar-thumb {
+  background: #23233a;
+  border-radius: 8px;
+  border: 2px solid #07070e;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a5c;
+}
+
+/* ---------- textures ---------- */
+
+.noise-layer {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.bg-blueprint {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+.bg-blueprint-fine {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px rgba(240, 217, 164, 0.22);
+  color: transparent;
+}
+
+.mask-fade-x {
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+.glass {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(14px);
+}
+
+.hairline {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- keyframes ---------- */
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-ticker {
+  animation: ticker 46s linear infinite;
+}
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+@keyframes dashflow {
+  to { stroke-dashoffset: -24; }
+}
+.flow-dash {
+  stroke-dasharray: 5 7;
+  animation: dashflow 1.1s linear infinite;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-floaty {
+  animation: floaty 7s ease-in-out infinite;
+}
+
+@keyframes sonar {
+  0% { transform: scale(0.6); opacity: 0.7; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+.animate-sonar {
+  animation: sonar 2.6s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+@keyframes dashflow-alt {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes blinkcaret {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.animate-caret {
+  animation: blinkcaret 0.9s steps(1) infinite;
+}
+
+@keyframes spin-slower {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slower {
+  animation: spin-slower 22s linear infinite;
+}
+
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+.shimmer-text {
+  background: linear-gradient(100deg, #e9e9f2 30%, #f0d9a4 48%, #e9e9f2 62%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 5.5s ease-in-out infinite;
+}
+
+@keyframes pendulum {
+  0%, 100% { transform: rotate(0.001deg); }
+}
+.scale-beam {
+  transition: transform 1.4s cubic-bezier(0.34, 1.4, 0.4, 1);
+  transform-origin: 200px 60px;
+}
