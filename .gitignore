@@ -1,0 +1,16 @@
+node_modules/
+dist/
+coverage/
+.DS_Store
+*.log
+
+# Keep local secrets and overrides out of Git. The public court address is
+# documented in .env.example and deployments/studionet.json.
+.env
+.env.local
+.env.*.local
+
+# Python test artifacts
+__pycache__/
+.pytest_cache/
+*.pyc

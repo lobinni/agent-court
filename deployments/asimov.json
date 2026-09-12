@@ -1,0 +1,25 @@
+{
+  "name": "AgentCourt",
+  "network": "GenLayer Asimov Testnet",
+  "chainId": 4221,
+  "chainIdHex": "0x107d",
+  "rpcUrl": "https://rpc-asimov.genlayer.com",
+  "currency": "GEN",
+  "faucet": "https://faucet.genlayer.com",
+  "explorerBase": "https://explorer-asimov.genlayer.com",
+  "contractAddress": "",
+  "explorerUrl": "",
+  "source": "contracts/agent_court.py",
+  "status": "pending-deployment",
+  "capabilities": [
+    "failure-atomic settlement",
+    "appeal window",
+    "mutual verdict acceptance",
+    "immutable evidence commitments",
+    "LLM jury consensus",
+    "escrow cancellation",
+    "treasury fee collection",
+    "canonical proxy payout via gl.get_contract_at(...).emit_transfer"
+  ],
+  "note": "Deploy contracts/agent_court.py to this network, then paste the address into VITE_COURT_ADDRESS and rebuild."
+}

@@ -1,0 +1,24 @@
+{
+  "name": "AgentCourt",
+  "network": "GenLayer Studionet",
+  "chainId": 61999,
+  "chainIdHex": "0xf22f",
+  "rpcUrl": "https://studio.genlayer.com/api",
+  "currency": "GEN",
+  "contractAddress": "0xaf96D67998A52d53c2551cE58e3E8a4c310B0e6A",
+  "explorerUrl": "https://explorer-studio.genlayer.com/address/0xaf96D67998A52d53c2551cE58e3E8a4c310B0e6A",
+  "source": "contracts/agent_court.py",
+  "status": "deployed-candidate",
+  "lastUpdated": "2026",
+  "requiredCapabilities": [
+    "failure-atomic cancellation",
+    "failure-atomic settlement",
+    "failure-atomic fee collection",
+    "appeal window",
+    "mutual verdict acceptance",
+    "immutable evidence commitments",
+    "synchronous evm-direct payout",
+    "optional-comitempty filing commitment (no strict hash format gate)"
+  ],
+  "note": "Two deploy-compatibility gates are enforced: (1) contract must expose court_info.payout_mode=evm-direct for synchronous payout atomicity; (2) filing uses optional client-side commitments — deployments built from a previous source with a strict _valid_commitment format gate will fail file_dispute whenever the browser cannot compute a hash (CORS/local evidence URLs) and MUST be replaced."
+}

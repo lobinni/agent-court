@@ -1,0 +1,31 @@
+{
+  "description": "Public evidence fixtures for AgentCourt live testing",
+  "network": "GenLayer Studionet",
+  "chainId": 61999,
+  "rpcUrl": "https://studio.genlayer.com/api",
+  "configuredCourt": "0xaf96D67998A52d53c2551cE58e3E8a4c310B0e6A",
+  "status": "capability-check-required",
+  "scenarios": [
+    {
+      "id": "material-breach",
+      "taskSpec": "samples/s1-breach/task_spec.md",
+      "delivery": "samples/s1-breach/delivery.md",
+      "expectedVerdict": "PLAINTIFF_WINS",
+      "expectedPlaintiffShare": 100
+    },
+    {
+      "id": "full-compliance",
+      "taskSpec": "samples/s2-compliant/task_spec.md",
+      "delivery": "samples/s2-compliant/delivery.md",
+      "expectedVerdict": "DEFENDANT_WINS",
+      "expectedPlaintiffShare": 0
+    },
+    {
+      "id": "subjective-quality",
+      "taskSpec": "samples/s3-subjective/task_spec.md",
+      "delivery": "samples/s3-subjective/delivery.md",
+      "expectedVerdict": "SPLIT",
+      "expectedPlaintiffShareRange": [1, 99]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "network": "GenLayer Studionet",
+  "chainId": 61999,
+  "deployments": [
+    {
+      "contractAddress": "0xaf96D67998A52d53c2551cE58e3E8a4c310B0e6A",
+      "status": "active",
+      "notes": "Current security-hardened court with synchronous EthSend payouts, appeal window, mutual acceptance, and optional-yet-immutable evidence commitments."
+    },
+    {
+      "contractAddress": "0x4646Ad4ea861CFa85D047e78aa73617e5f7e4809",
+      "status": "superseded",
+      "notes": "Deployment built from source containing the strict 71-char hash assertion bug (_valid_commitment); file_dispute reverted whenever browser could not read client evidence."
+    },
+    {
+      "contractAddress": "0xa431512E3dB90d9236E9c2f0ddA72e3Efc5c2EdA",
+      "status": "superseded",
+      "notes": "Used asynchronous gl.get_contract_at(addr).emit_transfer(). The parent call emitted 850 GEN, but child delivery to the EOA failed through contract_not_found_handler (tx 0x75e0a792d055f4f4c0da7135e483554eb8f088c1ce0b7cb9a2fc769bfd3c2cbf)."
+    },
+    {
+      "contractAddress": "0xb9E120B6FfD5297E3223Eee225693a86cb54dBbd",
+      "status": "superseded",
+      "notes": "Runner exposed none of the module-level transfer primitives (emit_transfer/emit/advanced/transfer). Replaced by the proxy-based payout implementation."
+    },
+    {
+      "contractAddress": "0x1082b7248A44ED1B39a64001822C528Da046E88B",
+      "status": "superseded",
+      "notes": "Settlement reverted when gl.evm.emit_transfer was absent on the runner."
+    },
+    {
+      "contractAddress": "0x9048d2597D799746A39444bd64318Ff92896B667",
+      "status": "superseded",
+      "notes": "Earlier payout compatibility deployment."
+    },
+    {
+      "contractAddress": "0x6610508bbF9E8F5f5cCE60A4CFfB14573Ce790bf",
+      "status": "superseded",
+      "notes": "Earlier jury execution deployment."
+    },
+    {
+      "contractAddress": "0x28533ea40951bcb6622B8c91CA5504B4fD9193D9",
+      "status": "superseded",
+      "notes": "Initial deployed court."
+    }
+  ]
+}
